@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-project
+  name: myapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: devops-project
+      app: myapp
   template:
     metadata:
       labels:
-        app: devops-project
+        app: myapp
     spec:
       containers:
-      - name: devops-project
-        image: aryansinghh1/devops-project:latest
+      - name: myapp
+        image: somnaths712/myapp:latest   # base image (Jenkins will override)
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
