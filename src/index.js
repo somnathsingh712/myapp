@@ -1,7 +1,13 @@
 const express = require('express');
 const path = require('path');
+const client = require('prom-client');
 const app = express();
-const port = process.env.PORT || 3000;
+
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
+const register = client.register;
+
+client.collectDefaultMetrics({ register });
 
 app.use(express.json());
 
@@ -21,11 +27,21 @@ app.post('/api/echo', (req, res) => {
   res.json({ received: req.body, timestamp: Date.now() });
 });
 
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', register.contentType);
+  res.end(register.metrics());
+});
+
+// Health check for Kubernetes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'UP', timestamp: new Date().toISOString() });
+});
+
 // SPA fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log(`nodeapp listening on http://localhost:${port}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
 });

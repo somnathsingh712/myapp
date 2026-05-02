@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     btn.addEventListener('click', async ()=>{
       out.textContent = 'Checking...';
       try{
-        const res = await fetch('/api/health');
+        const res = await fetch('/health');
         const j = await res.json();
         out.textContent = JSON.stringify(j, null, 2);
       }catch(e){out.textContent = 'Error: '+e.message}
