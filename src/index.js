@@ -27,9 +27,10 @@ app.post('/api/echo', (req, res) => {
   res.json({ received: req.body, timestamp: Date.now() });
 });
 
-app.get('/metrics', (req, res) => {
+app.get('/metrics', async (req, res) => {
+  const metrics = await register.metrics();
   res.set('Content-Type', register.contentType);
-  res.end(register.metrics());
+  res.send(metrics);
 });
 
 // Health check for Kubernetes
