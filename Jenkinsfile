@@ -1,21 +1,31 @@
 pipeline {
+
     agent any
+
+    tools {
+        nodejs 'node18'
+    }
+
+    environment {
+        IMAGE_NAME = "somnath712/nodeapp"
+    }
 
     stages {
 
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'master',
+                    url: 'https://github.com/somnathsingh712/myapp.git'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 sh 'npm test'
             }
@@ -23,7 +33,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
             }
         }
     }
