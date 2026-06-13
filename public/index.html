@@ -3,92 +3,162 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>DevOps Platform — Modern Infrastructure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>PulseOps — Build, Observe, Ship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <div class="nav">
-      <div class="logo">🚀 DevOps Hub</div>
-      <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#demo">Demo</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="page-shell">
+      <div class="bg-orb orb-one" aria-hidden="true"></div>
+      <div class="bg-orb orb-two" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="PulseOps home">
+          <span class="brand-mark">P</span>
+          <span>
+            <strong>PulseOps</strong>
+            <small>Infrastructure command center</small>
+          </span>
+        </a>
+
+        <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <nav id="siteNav" class="site-nav" aria-label="Primary">
+          <a href="#overview" class="nav-link is-active">Overview</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#demo" class="nav-link">Live Status</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <a class="nav-cta" href="#demo">Run health check</a>
+      </header>
+
+      <main id="top">
+        <section id="overview" class="hero reveal">
+          <div class="hero-copy">
+            <p class="eyebrow">Modern DevOps platform</p>
+            <h1>Build faster with a control plane that feels alive.</h1>
+            <p class="lead">PulseOps gives your team a sharper way to ship, monitor, and recover with a polished dashboard, instant feedback, and calm visibility across the stack.</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#demo">View live status</a>
+              <a class="btn btn-secondary" href="#features">Explore capabilities</a>
+            </div>
+
+            <div class="hero-metrics" aria-label="Platform highlights">
+              <article>
+                <strong>99.98%</strong>
+                <span>target uptime</span>
+              </article>
+              <article>
+                <strong>42s</strong>
+                <span>mean deploy time</span>
+              </article>
+              <article>
+                <strong>12</strong>
+                <span>system signals tracked</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="glass-card status-card floating-card delay-one">
+              <p>Production health</p>
+              <strong>All systems nominal</strong>
+              <div class="pulse-line"></div>
+            </div>
+            <div class="glass-card metrics-card floating-card delay-two">
+              <span>Deploy velocity</span>
+              <div class="meter"><i style="width:84%"></i></div>
+              <span class="meter-label">84% of target this week</span>
+            </div>
+            <svg class="hero-shape" viewBox="0 0 720 640" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#7dd3fc" />
+                  <stop offset="45%" stop-color="#5eead4" />
+                  <stop offset="100%" stop-color="#a78bfa" />
+                </linearGradient>
+              </defs>
+              <path class="shape-ring ring-one" d="M360,96c146,0,264,118,264,264S506,624,360,624,96,506,96,360,214,96,360,96Z" />
+              <path class="shape-ring ring-two" d="M360,168c106,0,192,86,192,192s-86,192-192,192-192-86-192-192,86-192,192-192Z" />
+              <circle class="shape-core" cx="360" cy="360" r="74" fill="url(#heroGradient)" />
+            </svg>
+          </div>
+        </section>
+
+        <section id="features" class="section reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Capabilities</p>
+            <h2>Navigation across the platform is organized around the work your team actually does.</h2>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <span class="card-index">01</span>
+              <h3>Delivery pipelines</h3>
+              <p>Automated build and release flows with visible checkpoints and graceful failure states.</p>
+            </article>
+            <article class="card">
+              <span class="card-index">02</span>
+              <h3>Infrastructure as code</h3>
+              <p>Keep environments reproducible with versioned infrastructure and deployment-ready templates.</p>
+            </article>
+            <article class="card">
+              <span class="card-index">03</span>
+              <h3>Monitoring and logs</h3>
+              <p>Track metrics, logs, and alerts in one place so decisions are driven by live context.</p>
+            </article>
+            <article class="card">
+              <span class="card-index">04</span>
+              <h3>Container orchestration</h3>
+              <p>Coordinate services with a compact surface that still feels responsive at scale.</p>
+            </article>
+            <article class="card">
+              <span class="card-index">05</span>
+              <h3>Security posture</h3>
+              <p>Integrate scanning, policy checks, and compliance signals into the same workflow.</p>
+            </article>
+            <article class="card">
+              <span class="card-index">06</span>
+              <h3>Cost visibility</h3>
+              <p>Spot waste early with a clearer view of resource usage, capacity, and scaling behavior.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="demo" class="section split reveal">
+          <div>
+            <p class="eyebrow">Live status</p>
+            <h2>Built-in navigation takes you from overview to operations without losing context.</h2>
+            <p class="muted">Use the button below to fetch the API health endpoint and surface a live response in the UI.</p>
+          </div>
+
+          <div class="demo-panel glass-card">
+            <button id="healthBtn" class="btn btn-primary" type="button">Check system health</button>
+            <pre id="demoOut" aria-live="polite">Service status will appear here.</pre>
+          </div>
+        </section>
+
+        <section id="contact" class="section contact reveal">
+          <div class="contact-card glass-card">
+            <p class="eyebrow">Contact</p>
+            <h2>Ship a cleaner operational experience.</h2>
+            <p class="muted">This layout keeps the page focused, adds motion that supports the content, and gives the navigation a clear role on desktop and mobile.</p>
+            <a class="btn btn-secondary" href="#overview">Back to top</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 PulseOps. Infrastructure management with a calmer interface.</p>
+      </footer>
     </div>
-
-    <header class="hero">
-      <div class="hero-inner">
-        <h1 class="title">Automate, Deploy, Scale</h1>
-        <p class="subtitle">Enterprise-grade DevOps platform for continuous integration, deployment, and infrastructure management.</p>
-        <div class="cta">
-          <a class="btn primary" href="#demo">Try Demo</a>
-          <a class="btn ghost" href="#features">Learn More</a>
-        </div>
-      </div>
-
-      <div class="hero-visual" aria-hidden>
-        <svg class="blobs" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0%" stop-color="#6EE7B7" />
-              <stop offset="100%" stop-color="#60A5FA" />
-            </linearGradient>
-          </defs>
-          <g fill="url(#g1)" opacity="0.9">
-            <path class="blob b1" d="M421,300Q370,350,314,329Q258,308,196,327Q134,346,98,294Q62,242,84,186Q106,130,166,102Q226,74,290,92Q354,110,398,156Q442,202,421,300Z"/>
-            <path class="blob b2" d="M157,247Q138,294,92,307Q46,320,46,268Q46,216,73,179Q100,142,146,133Q192,124,237,142Q282,160,305,204Q328,248,301,282Q274,316,227,303Q180,290,157,247Z"/>
-          </g>
-        </svg>
-      </div>
-    </header>
-
-    <main>
-      <section id="features" class="section">
-        <h2>Features</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>🔄 CI/CD Pipelines</h3>
-            <p>Automated testing, building, and deployment workflows for faster releases.</p>
-          </div>
-          <div class="card">
-            <h3>📊 Infrastructure as Code</h3>
-            <p>Version-controlled infrastructure with Terraform, Ansible, and Kubernetes.</p>
-          </div>
-          <div class="card">
-            <h3>📈 Monitoring & Logging</h3>
-            <p>Real-time insights with centralized logs, metrics, and alerting.</p>
-          </div>
-          <div class="card">
-            <h3>🐳 Container Orchestration</h3>
-            <p>Manage Docker containers at scale with Kubernetes integration.</p>
-          </div>
-          <div class="card">
-            <h3>🔐 Security & Compliance</h3>
-            <p>Automated security scanning, vulnerability management, and compliance checks.</p>
-          </div>
-          <div class="card">
-            <h3>📉 Cost Optimization</h3>
-            <p>Reduce cloud spending with intelligent resource management and auto-scaling.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="demo" class="section demo">
-        <h2>System Status</h2>
-        <div class="demo-panel">
-          <button id="healthBtn" class="btn primary">Check System Health</button>
-          <pre id="demoOut">Service status will appear here.</pre>
-        </div>
-      </section>
-
-      <section id="contact" class="section small">
-        <h2>Start Your DevOps Journey</h2>
-        <p class="muted">Deploy smarter, faster, and more reliably. Contact our team for a personalized demo and consultation.</p>
-      </section>
-    </main>
-
-    <footer class="footer">© 2026 DevOps Hub • Enterprise Infrastructure Management Platform</footer>
 
     <script src="/app.js"></script>
   </body>
